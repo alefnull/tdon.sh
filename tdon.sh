@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
+[ -z "$TODO" ] && export TODO="$HOME/.tdon"
+
 function tdo() {
+  [ -f "$TODO" ] || touch "$TODO"
   i=1
   if [ $# == "0" ]; then
-    echo "+-------+"
-    echo "| todo: |"
-    echo "+-------+"
     while read -r line; do
     echo "$line"
     i=$((i+1))
